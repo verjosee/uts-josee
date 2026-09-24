@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bekb5kejphei8"]
+
+[ext_resource type="Texture2D" uid="uid://bgperhxe4uef4" path="res://Assets/Images/Background/1.png" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://crlwilxcjnogi" path="res://Scenes/level_root.tscn" id="2_bo1nx"]
+
+[node name="Main" type="Node2D" unique_id=854249426]
+
+[node name="1" type="Sprite2D" parent="." unique_id=1386235293]
+position = Vector2(615, 417)
+scale = Vector2(2.6857638, 2.7191358)
+texture = ExtResource("1_bo1nx")
+
+[node name="LevelRoot" parent="." unique_id=939594844 instance=ExtResource("2_bo1nx")]
+position = Vector2(-1, 13)
