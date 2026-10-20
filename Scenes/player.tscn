@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://chtbq8ti7evx" path="res://Assets/Images/Player/Ninja Frog/Idle (32x32).png" id="2_vgqql"]
 [ext_resource type="Texture2D" uid="uid://bjky5nc1r28mj" path="res://Assets/Images/Player/Ninja Frog/Jump (32x32).png" id="3_fkybt"]
 [ext_resource type="Texture2D" uid="uid://ch8c8yk8a7ffm" path="res://Assets/Images/Player/Ninja Frog/Run (32x32).png" id="4_x3wgy"]
+[ext_resource type="Script" path="res://Scripts/kamera.gd" id="5_kamera"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
 atlas = ExtResource("2_vgqql")
@@ -212,3 +213,11 @@ animation = &"idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=712610740]
 position = Vector2(0, 9)
 shape = SubResource("CapsuleShape2D_wohnl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+position_smoothing_speed = 5.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = false
+script = ExtResource("5_kamera")

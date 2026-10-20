@@ -4,6 +4,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -500.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var camera: Camera2D = $Camera2D
 
 var spawn_position := Vector2.ZERO
 
@@ -35,10 +36,9 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-	# Batasi player agar tidak keluar dari ujung layar (screen boundary)
-	var viewport_rect := get_viewport_rect()
+	# Batasi player agar tidak keluar dari ujung peta (memakai batas kamera dari kamera.gd)
 	var half_width := 24.0 # estimasi setengah lebar collision player
-	position.x = clamp(position.x, half_width, viewport_rect.size.x - half_width)
+	global_position.x = clamp(global_position.x, camera.limit_left + half_width, camera.limit_right - half_width)
 
 	# Update arah sprite dan animasi setelah move_and_slide agar is_on_floor() akurat
 	update_animation(direction)
